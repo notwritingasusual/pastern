@@ -1,39 +1,45 @@
 body {
   font-family: sans-serif;
-  margin: 2rem;
+  margin: 0;
+  padding: 2rem;
   background: #f9f9f9;
+  text-align: center; /* centers inline elements like text, inputs, buttons */
 }
 
 .logo {
-  display: block;           /* ensures it behaves nicely in layout */
-  max-width: 300px;         /* max width in pixels */
-  width: 100%;              /* scales down on smaller screens */
-  height: auto;             /* keeps the aspect ratio */
-  margin: 1px auto;        /* vertical spacing + centers horizontally */
+  display: block;
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  margin: 20px auto;
 }
 
+/* Center block elements (forms, textarea, inputs) */
+.centered {
+  margin: 20px auto;
+  max-width: 500px;
+}
 
 .textarea {
-  display: block;             /* so margin auto works */
-  width: 500px;               /* fixed width, adjust as needed */
-  height: 300px;              /* makes it a square */
-  margin: 5px auto;          /* centers horizontally + adds vertical spacing */
-  padding: 15px;              /* space inside the box */
-  font-size: 16px;            /* readable text */
-  border: 2px solid #ccc;     /* nice border */
-  border-radius: 15px;        /* optional rounded corners */
-  resize: none;               /* prevent stretching via drag (optional) */
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* subtle shadow */
+  display: block;
+  width: 100%;
+  height: 200px;
+  margin: 10px 0;
+  padding: 15px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 15px;
+  resize: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-
-.searcharea{
-  display: block;             /* so margin auto works */
-  width: 500px;               /* fixed width, adjust as needed */
-  height: 300px;              /* makes it a square */
-  margin: 5px auto;          /* centers horizontally + adds vertical spacing */
-  font-size: 16px;            /* readable text */
-  resize: none;               /* prevent stretching via drag (optional) */
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 10px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
 }
 
 button {
@@ -43,15 +49,21 @@ button {
   color: white;
   border: none;
   cursor: pointer;
-  margin: 10px auto 
+  margin: 10px auto;
+  border-radius: 8px;
 }
 button:hover {
   background: #555;
 }
+
 ul {
   list-style: none;
   padding: 0;
+  margin: 2rem auto;
+  max-width: 800px;
+  text-align: left; /* list items should align properly */
 }
+
 li {
   background: white;
   margin: 1rem 0;
