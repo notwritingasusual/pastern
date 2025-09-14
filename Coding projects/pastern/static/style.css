@@ -65,6 +65,7 @@ ul {
   text-align: left; /* list items should align properly */
 }
 
+/* recent clips*/
 li {
   background: white;
   margin: 1rem 0;
@@ -75,3 +76,21 @@ li {
   overflow-wrap: break-word;
   box-sizing: border-box;
 }
+
+/* when user pastes texts rules */
+.clip-text {
+  white-space: pre-wrap; /* preserves line breaks and wraps text */
+}
+
+
+/* keywords list */
+li small {
+  display: block;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* adds "..." if too long */
+  color: gray;             /* optional: make it subtle */
+  font-size: 0.9em;
+}
+

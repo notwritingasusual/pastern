@@ -13,26 +13,27 @@
 
   <!-- paste form -->
   <form method="POST" class="centered">
-    <textarea name="content" class="textarea" placeholder="Paste something..."></textarea>
+    <textarea name="content" class="textarea" placeholder="Paste..."></textarea>
     <button type="submit">PASTE</button>
   </form>
 
   <!-- search form -->
   <form method="GET" action="/search" class="centered">
-    <input type="text" name="q" placeholder="Search by keyword..." value="{{ search or '' }}">
+    <input type="text" name="q" placeholder="what you after?" value="{{ search or '' }}">
     <button type="submit">Search</button>
   </form>
 
   <h2>Recent Clips</h2>
-  <ul>
-    {% for entry in entries %}
-      <li>
-        <b>{{ entry[3] }}</b><br>
-        {{ entry[1] }}<br>
-        <small>Keywords: {{ entry[2] }}</small>
-      </li>
-    {% endfor %}
-  </ul>
+<ul>
+{% for entry in entries %}
+  <li>
+    <b>{{ entry[3] }}</b><br>
+    <div class="clip-text">{{ entry[1] }}</div>
+    <small>Keywords: {{ entry[2] }}</small>
+  </li>
+{% endfor %}
+</ul>
+
 
 </body>
 </html>
