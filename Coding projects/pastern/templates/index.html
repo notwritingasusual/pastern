@@ -6,10 +6,12 @@
 </head>
 <body>
 
-  <!-- logo -->
-  <img src="{{ url_for('static', filename='images/pasternlogo.png') }}" 
-       alt="pastern logo" 
-       class="logo">
+    <!-- Banner with logo -->
+  <header class="banner">
+    <img src="{{ url_for('static', filename='images/pasternlogo.png') }}" 
+         alt="Pastern logo" 
+         class="logo">
+
 
   <!-- paste form -->
   <form method="POST" class="centered">
@@ -17,7 +19,9 @@
     <button type="submit">PASTE</button>
   </form>
 
-  <!-- search form -->
+
+
+         <!-- search form -->
   <form method="GET" action="/search" class="centered">
     <input type="text" name="q" placeholder="what you after?" value="{{ search or '' }}">
     <button type="submit">Search</button>

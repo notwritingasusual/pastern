@@ -6,6 +6,10 @@ body {
   text-align: center; /* centers inline elements like text, inputs, buttons */
 }
 
+.banner {
+  background: #eee7e7;
+}
+
 .logo {
   display: block;
   max-width: 300px;
@@ -45,7 +49,7 @@ input[type="text"] {
 button {
   display: block;
   padding: 1rem 5rem;
-  background: #333;
+  background: #980f0fb0;
   color: white;
   border: none;
   cursor: pointer;
