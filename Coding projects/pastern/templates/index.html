@@ -6,23 +6,26 @@
 </head>
 <body>
 
-    <!-- logo -->
+    <!-- logo-->
 <img src="{{ url_for('static', filename='images/pasternlogo.png') }}" 
      alt="pastern logo" 
      class="logo">
 
   
   <form method="POST">
-    <textarea name="content" placeholder="Paste something..." rows="10" cols="60"></textarea><br>
+    <textarea name="content" class="textarea" Paste something..."></textarea><br>
     <button type="submit">PASTE</button>
   </form>
 
-  <form method="GET" action="/search">
+
+
+
+  <form method="GET" action="/search" class="searcharea">
     <input type="text" name="q" placeholder="Search by keyword..." value="{{ search or '' }}">
     <button type="submit">Search</button>
   </form>
 
-  <h2>Saved Clips</h2>
+  <h2>Recent Pastes</h2>
   <ul>
     {% for entry in entries %}
       <li>
