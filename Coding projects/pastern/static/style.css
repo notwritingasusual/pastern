@@ -11,7 +11,7 @@ body {
   max-width: 300px;
   width: 100%;
   height: auto;
-  margin: 20px auto;
+  margin: 5px auto;
 }
 
 /* Center block elements (forms, textarea, inputs) */
@@ -61,6 +61,7 @@ ul {
   padding: 0;
   margin: 2rem auto;
   max-width: 800px;
+  width: 100%;
   text-align: left; /* list items should align properly */
 }
 
@@ -70,4 +71,7 @@ li {
   padding: 1rem;
   border-radius: 6px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  box-sizing: border-box;
 }
