@@ -4,8 +4,8 @@ body {
   background: #f9f9f9;
 }
 .logo {
-  height: 60px;     /* adjust logo size */
-  margin: 10px 0;    /* space above and below */
+  height: 0px;     /* adjust logo size */
+  margin: 0px 0;    /* space above and below */
   display: block;    /* ensures it behaves nicely in layout */
 }
 

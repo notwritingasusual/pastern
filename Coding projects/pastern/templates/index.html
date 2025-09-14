@@ -5,13 +5,15 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+
+    <!-- logo -->
 <img src="{{ url_for('static', filename='images/pasternlogo.png') }}" 
      alt="pastern logo" 
      class="logo">
 
   
   <form method="POST">
-    <textarea name="content" placeholder="Paste something..." rows="4" cols="50"></textarea><br>
+    <textarea name="content" placeholder="Paste something..." rows="10" cols="60"></textarea><br>
     <button type="submit">PASTE</button>
   </form>
 
