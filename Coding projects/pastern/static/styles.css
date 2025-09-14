@@ -3,6 +3,12 @@ body {
   margin: 2rem;
   background: #f9f9f9;
 }
+.logo {
+  height: 60px;     /* adjust logo size */
+  margin: 10px 0;    /* space above and below */
+  display: block;    /* ensures it behaves nicely in layout */
+}
+
 textarea, input {
   width: 100%;
   margin-bottom: 1rem;

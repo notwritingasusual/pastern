@@ -5,11 +5,14 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-  <h1>Pastern</h1>
+<img src="{{ url_for('static', filename='images/pasternlogo.png') }}" 
+     alt="pastern logo" 
+     class="logo">
+
   
   <form method="POST">
     <textarea name="content" placeholder="Paste something..." rows="4" cols="50"></textarea><br>
-    <button type="submit">Save</button>
+    <button type="submit">PASTE</button>
   </form>
 
   <form method="GET" action="/search">
