@@ -6,38 +6,37 @@
 </head>
 <body>
 
-    <!-- Banner with logo -->
+  <!-- Banner with logo + search form -->
   <header class="banner">
+    <!-- Logo -->
     <img src="{{ url_for('static', filename='images/pasternlogo.png') }}" 
          alt="Pastern logo" 
          class="logo">
 
+    <!-- Search form -->
+    <form method="GET" action="/search" class="search-form">
+      <input type="text" name="q" placeholder="What you after?" value="{{ search or '' }}">
+      <button type="submit">Search</button>
+    </form>
+  </header>
 
-  <!-- paste form -->
-  <form method="POST" class="centered">
-    <textarea name="content" class="textarea" placeholder="Paste..."></textarea>
+  <!-- Paste form -->
+  <form method="POST" class="paste-form">
+    <textarea name="content" placeholder="Paste..." class="textarea"></textarea>
     <button type="submit">PASTE</button>
   </form>
 
-
-
-         <!-- search form -->
-  <form method="GET" action="/search" class="centered">
-    <input type="text" name="q" placeholder="what you after?" value="{{ search or '' }}">
-    <button type="submit">Search</button>
-  </form>
-
-  <h2>Recent Clips</h2>
-<ul>
-{% for entry in entries %}
-  <li>
-    <b>{{ entry[3] }}</b><br>
-    <div class="clip-text">{{ entry[1] }}</div>
-    <small>Keywords: {{ entry[2] }}</small>
-  </li>
-{% endfor %}
-</ul>
-
+  <!-- Recent Clips -->
+  <h2 style="text-align:center;">Recent Clips</h2>
+  <ul>
+    {% for entry in entries %}
+      <li>
+        <b>{{ entry[3] }}</b><br>
+        <div class="clip-text">{{ entry[1] }}</div>
+        <small>Keywords: {{ entry[2] }}</small>
+      </li>
+    {% endfor %}
+  </ul>
 
 </body>
 </html>
