@@ -4,7 +4,7 @@
 body {
   font-family: sans-serif;
   margin: 0;
-  padding-top: 100px; /* space for fixed banner */
+  padding-top: 120px; /* space for fixed banner (increased due to taller logo) */
   background: #f9f9f9;
 }
 
@@ -13,7 +13,7 @@ body {
 ----------------------------- */
 .banner {
   background: #f1f1f1;
-  height: 80px;                  /* banner height */
+  height: 100px;                  /* slightly taller to fit bigger logo */
   display: flex;
   justify-content: space-between; /* logo left, search right */
   align-items: center;
@@ -28,7 +28,7 @@ body {
 
 /* Logo inside banner */
 .banner .logo {
-  max-height: 100%;   /* scale logo up to fill banner height */
+  height: 80px;   /* bigger logo height */
   width: auto;
   display: block;
 }
