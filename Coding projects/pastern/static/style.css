@@ -28,17 +28,22 @@ body {
 
 /* Logo inside banner */
 .banner .logo {
-  height: 60px;    /* fixed logo height */
+  max-height: 100%;   /* scale logo up to fill banner height */
   width: auto;
+  display: block;
 }
 
 /* Search form inside banner */
 .search-form {
   display: flex;
   gap: 10px;
+  flex-shrink: 1;          /* allow form to shrink if needed */
+  max-width: 50%;          /* prevent overflow */
 }
 
 .search-form input {
+  flex: 1;                 /* input takes remaining space */
+  min-width: 100px;        /* prevent too small input */
   padding: 0.5rem;
   font-size: 14px;
   border: 1px solid #ccc;
@@ -46,6 +51,7 @@ body {
 }
 
 .search-form button {
+  flex-shrink: 0;          /* keep button size fixed */
   padding: 0.5rem 1rem;
   background: #333;
   color: white;
@@ -93,12 +99,12 @@ body {
 }
 
 /* -----------------------------
-   Recent Clips Section
+   Recent Clips Section (Wider)
 ----------------------------- */
 ul {
   list-style: none;
   padding: 0;
-  max-width: 600px;
+  max-width: 800px; /* wider than textarea */
   margin: 20px auto;
 }
 
@@ -127,6 +133,7 @@ li {
 
   .search-form {
     width: 100%;
+    max-width: 90%;
     justify-content: center;
   }
 
@@ -138,5 +145,9 @@ li {
   .paste-form textarea {
     width: 90%;
     height: 200px;
+  }
+
+  ul {
+    max-width: 95%; /* make recent clips almost full width on small screens */
   }
 }
