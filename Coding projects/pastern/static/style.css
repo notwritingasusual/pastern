@@ -4,7 +4,7 @@
 body {
   font-family: sans-serif;
   margin: 0;
-  padding-top: 120px; /* space for fixed banner (increased due to taller logo) */
+  padding-top: 140px; /* more space for taller banner */
   background: #f9f9f9;
 }
 
@@ -13,9 +13,9 @@ body {
 ----------------------------- */
 .banner {
   background: #f1f1f1;
-  height: 100px;                  /* slightly taller to fit bigger logo */
+  min-height: 120px;              
   display: flex;
-  justify-content: space-between; /* logo left, search right */
+  justify-content: space-between; 
   align-items: center;
   padding: 0 20px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -24,11 +24,12 @@ body {
   left: 0;
   width: 100%;
   z-index: 1000;
+  flex-wrap: wrap;
 }
 
 /* Logo inside banner */
 .banner .logo {
-  height: 80px;   /* bigger logo height */
+  height: 100px;   
   width: auto;
   display: block;
 }
@@ -36,23 +37,23 @@ body {
 /* Search form inside banner */
 .search-form {
   display: flex;
-  gap: 10px;
-  flex-shrink: 1;          /* allow form to shrink if needed */
-  max-width: 50%;          /* prevent overflow */
+  gap: 6px;
+  justify-content: flex-end;
+  max-width: 350px;          /* smaller, prevents overflow */
+  margin-right: 40px;        /* move whole form left */
 }
 
 .search-form input {
-  flex: 1;                 /* input takes remaining space */
-  min-width: 100px;        /* prevent too small input */
-  padding: 0.5rem;
+  width: 180px;              /* fixed smaller width */
+  padding: 0.35rem 0.6rem;
   font-size: 14px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
 
 .search-form button {
-  flex-shrink: 0;          /* keep button size fixed */
-  padding: 0.5rem 1rem;
+  padding: 0.35rem 0.8rem;
+  font-size: 14px;
   background: #333;
   color: white;
   border: none;
@@ -104,7 +105,7 @@ body {
 ul {
   list-style: none;
   padding: 0;
-  max-width: 800px; /* wider than textarea */
+  max-width: 800px;
   margin: 20px auto;
 }
 
@@ -114,11 +115,11 @@ li {
   padding: 1rem;
   border-radius: 6px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  word-wrap: break-word; /* prevent overflow */
+  word-wrap: break-word;
 }
 
 .clip-text {
-  white-space: pre-wrap; /* respect paragraphs */
+  white-space: pre-wrap;
 }
 
 /* -----------------------------
@@ -127,19 +128,19 @@ li {
 @media (max-width: 700px) {
   .banner {
     flex-direction: column;
-    height: auto;
+    align-items: flex-start;
     padding: 10px;
   }
 
   .search-form {
     width: 100%;
-    max-width: 90%;
+    max-width: 100%;
     justify-content: center;
+    margin-right: 0;  /* reset margin on mobile */
   }
 
   .search-form input {
-    flex: 1;
-    max-width: 70%;
+    width: 70%;
   }
 
   .paste-form textarea {
@@ -148,7 +149,8 @@ li {
   }
 
   ul {
-    max-width: 95%; /* make recent clips almost full width on small screens */
+    max-width: 95%;
   }
 }
-/*end of styles*/
+
+/* end of styles */
