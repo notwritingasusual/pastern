@@ -4,8 +4,8 @@
 body {
   font-family: sans-serif;
   margin: 0;
-  padding-top: 140px;
-  background: #e2edf88e;
+  padding-top: 100px; /* reduced to match shorter banner */
+  background: #c1d6ed8e;
 }
 
 /* -----------------------------
@@ -14,7 +14,7 @@ body {
 button {
   padding: 0.35rem 0.8rem;
   font-size: 14px;
-  background: #333;
+  background: #432626;
   color: white;
   border: none;
   cursor: pointer;
@@ -27,11 +27,11 @@ button:hover {
 }
 
 /* -----------------------------
-   Banner (Logo + Search)
+   Banner (Logo + Search) - shorter
 ----------------------------- */
 .banner {
-  background: #f4f6f98e;
-  min-height: 120px;
+  background: #333;
+  min-height: 80px; /* shorter banner */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -41,12 +41,12 @@ button:hover {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 10000;
   flex-wrap: wrap;
 }
 
 .banner .logo {
-  height: 100px;
+  height: 60px; /* scaled down to match shorter banner */
   width: auto;
   display: block;
 }
@@ -56,11 +56,11 @@ button:hover {
   gap: 6px;
   justify-content: flex-end;
   max-width: 350px;
-  margin-right: 40px;
+  margin-right: 20px;
 }
 
 .search-form input {
-  width: 180px;
+  width: 160px; /* slightly smaller */
   padding: 0.35rem 0.6rem;
   font-size: 14px;
   border: 1px solid #ccc;
@@ -76,9 +76,10 @@ button:hover {
   align-items: center;
   margin: 20px auto;
   gap: 10px;
+  position: relative; /* ensures content scrolls under banner */
 }
 
-/* All inputs same width as textarea */
+/* Inputs & Textarea */
 .paste-form input[type="text"],
 .paste-form textarea {
   width: 500px;
@@ -91,9 +92,9 @@ button:hover {
   box-sizing: border-box;
 }
 
-/* Smaller height for title & keywords */
+/* Slightly smaller height for title & keywords */
 .paste-form input[type="text"] {
-  height: 60px;
+  height: 50px; /* slightly smaller */
 }
 
 .paste-form input[type="text"]::placeholder {
@@ -101,7 +102,7 @@ button:hover {
   font-style: italic;
 }
 
-/* Textarea - main content */
+/* Textarea */
 .paste-form textarea {
   height: 300px;
   resize: none;
@@ -119,4 +120,103 @@ button:hover {
   text-align: center;
   color: #888;
   cursor: pointer;
-  transit
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.drop-zone:hover {
+  background: #f0f0f0;
+  border-color: #999;
+}
+
+.drop-zone input[type="file"] {
+  display: none;
+}
+
+/* -----------------------------
+   Footer
+----------------------------- */
+.site-footer {
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 20px 10px;
+  margin-top: 40px;
+  border-top: 2px solid #444;
+}
+
+.site-footer a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 8px;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}
+
+/* -----------------------------
+   Recent Clips Section
+----------------------------- */
+ul {
+  list-style: none;
+  padding: 0;
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+li {
+  background: white;
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  word-wrap: break-word;
+}
+
+.clip-text {
+  white-space: pre-wrap;
+}
+
+.recent-clips {
+  font-size: 14px;
+}
+
+.recent-clips h3 {
+  font-size: 16px;
+}
+
+/* -----------------------------
+   Responsive Adjustments
+----------------------------- */
+@media (max-width: 700px) {
+  .banner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+  .search-form {
+    width: 100%;
+    max-width: 100%;
+    justify-content: center;
+    margin-right: 0;
+  }
+
+  .search-form input {
+    width: 70%;
+  }
+
+  .paste-form input[type="text"],
+  .paste-form textarea,
+  .drop-zone {
+    width: 90%;
+  }
+
+  .paste-form textarea {
+    height: 200px;
+  }
+
+  ul {
+    max-width: 95%;
+  }
+}
