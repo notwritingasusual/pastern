@@ -6,39 +6,84 @@
 </head>
 <body>
 
-  <!-- Banner with logo + search form -->
+  <!-- Banner -->
   <header class="banner">
-    <!-- Logo -->
     <img src="{{ url_for('static', filename='images/pasternlogo.png') }}" 
          alt="Pastern logo" 
          class="logo">
 
-    <!-- Search form -->
     <form method="GET" action="/search" class="search-form">
-      <input type="text" name="q" placeholder="What you after?" value="{{ search or '' }}">
+      <input type="text" name="q" placeholder="What you after?">
       <button type="submit">Search</button>
     </form>
-    
   </header>
 
-  <!-- Paste form -->
-  <form method="POST" class="paste-form">
-    <textarea name="content" placeholder="Paste..." class="textarea"></textarea>
-    <button type="submit">PASTE</button>
+  <!-- Paste + Upload Form -->
+  <form class="paste-form" method="POST" enctype="multipart/form-data">
+    <input type="text" name="title" placeholder="Title" required>
+    <textarea name="content" placeholder="Body" required></textarea>
+    <input type="text" name="keywords" placeholder="Keywords (optional)">
+    
+    <!-- Drag and Drop Image Upload -->
+    <div class="drop-zone">
+      <span>Drag & Drop an image here or click to upload</span>
+      <input type="file" name="image" accept="image/*">
+    </div>
+
+    <button type="submit">Save</button>
   </form>
 
   <!-- Recent Clips -->
   <h2 style="text-align:center;">Recent Clips</h2>
-  <ul>
+  <ul class="recent-clips">
     {% for entry in entries %}
       <li>
-        <b>{{ entry[3] }}</b><br>
-        <div class="clip-text">{{ entry[1] }}</div>
-        <small>Keywords: {{ entry[2] }}</small>
+        {% if entry['title'] %}
+          <h3>{{ entry['title'] }}</h3>
+        {% endif %}
+        
+        {% if entry['content'] %}
+          <div class="clip-text">{{ entry['content'] | safe }}</div>
+        {% endif %}
+        
+        {% if entry['image_path'] %}
+          <div>
+            <img src="{{ url_for('static', filename=entry['image_path'].replace('static/', '')) }}" 
+                 alt="uploaded image" style="max-width:300px;">
+          </div>
+        {% endif %}
+        
+        {% if entry['keywords'] %}
+          <small>Keywords: {{ entry['keywords'] }}</small>
+        {% endif %}
       </li>
     {% endfor %}
   </ul>
 
+  <!-- Drag & Drop Script -->
+  <script>
+    const dropZone = document.querySelector(".drop-zone");
+    const fileInput = dropZone.querySelector("input[type='file']");
+
+    dropZone.addEventListener("click", () => fileInput.click());
+
+    dropZone.addEventListener("dragover", (e) => {
+      e.preventDefault();
+      dropZone.classList.add("dragover");
+    });
+
+    dropZone.addEventListener("dragleave", () => {
+      dropZone.classList.remove("dragover");
+    });
+
+    dropZone.addEventListener("drop", (e) => {
+      e.preventDefault();
+      dropZone.classList.remove("dragover");
+      if (e.dataTransfer.files.length) {
+        fileInput.files = e.dataTransfer.files;
+      }
+    });
+  </script>
+
 </body>
 </html>
-<!---end of html-->
