@@ -4,18 +4,36 @@
 body {
   font-family: sans-serif;
   margin: 0;
-  padding-top: 140px; /* more space for taller banner */
-  background: #f9f9f9;
+  padding-top: 140px;
+  background: #e2edf88e;
+}
+
+/* -----------------------------
+   Buttons (All the same)
+----------------------------- */
+button {
+  padding: 0.35rem 0.8rem;
+  font-size: 14px;
+  background: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: #555;
 }
 
 /* -----------------------------
    Banner (Logo + Search)
 ----------------------------- */
 .banner {
-  background: #f1f1f1;
-  min-height: 120px;              
+  background: #f4f6f98e;
+  min-height: 120px;
   display: flex;
-  justify-content: space-between; 
+  justify-content: space-between;
   align-items: center;
   padding: 0 20px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -27,45 +45,30 @@ body {
   flex-wrap: wrap;
 }
 
-/* Logo inside banner */
 .banner .logo {
-  height: 100px;   
+  height: 100px;
   width: auto;
   display: block;
 }
 
-/* Search form inside banner */
 .search-form {
   display: flex;
   gap: 6px;
   justify-content: flex-end;
-  max-width: 350px;          /* smaller, prevents overflow */
-  margin-right: 40px;        /* move whole form left */
+  max-width: 350px;
+  margin-right: 40px;
 }
 
 .search-form input {
-  width: 180px;              /* fixed smaller width */
+  width: 180px;
   padding: 0.35rem 0.6rem;
   font-size: 14px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
 
-.search-form button {
-  padding: 0.35rem 0.8rem;
-  font-size: 14px;
-  background: #333;
-  color: white;
-  border: none;
-  cursor: pointer;
-  border-radius: 4px;
-}
-.search-form button:hover {
-  background: #555;
-}
-
 /* -----------------------------
-   Paste Form (Main Content)
+   Paste Form
 ----------------------------- */
 .paste-form {
   display: flex;
@@ -75,82 +78,45 @@ body {
   gap: 10px;
 }
 
+/* All inputs same width as textarea */
+.paste-form input[type="text"],
 .paste-form textarea {
   width: 500px;
   max-width: 90%;
-  height: 300px;
   padding: 15px;
   font-size: 16px;
   border: 2px solid #ccc;
   border-radius: 10px;
-  resize: none;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-sizing: border-box;
 }
 
-.paste-form button {
-  padding: 1rem 5rem;
-  background: #333;
-  color: white;
-  border: none;
+/* Smaller height for title & keywords */
+.paste-form input[type="text"] {
+  height: 60px;
+}
+
+.paste-form input[type="text"]::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+/* Textarea - main content */
+.paste-form textarea {
+  height: 300px;
+  resize: none;
+}
+
+/* -----------------------------
+   Drag-and-Drop Image Input
+----------------------------- */
+.drop-zone {
+  width: 500px;
+  max-width: 90%;
+  padding: 40px;
+  border: 2px dashed #ccc;
+  border-radius: 10px;
+  text-align: center;
+  color: #888;
   cursor: pointer;
-  border-radius: 4px;
-}
-.paste-form button:hover {
-  background: #555;
-}
-
-/* -----------------------------
-   Recent Clips Section (Wider)
------------------------------ */
-ul {
-  list-style: none;
-  padding: 0;
-  max-width: 800px;
-  margin: 20px auto;
-}
-
-li {
-  background: white;
-  margin: 1rem 0;
-  padding: 1rem;
-  border-radius: 6px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  word-wrap: break-word;
-}
-
-.clip-text {
-  white-space: pre-wrap;
-}
-
-/* -----------------------------
-   Responsive Adjustments
------------------------------ */
-@media (max-width: 700px) {
-  .banner {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px;
-  }
-
-  .search-form {
-    width: 100%;
-    max-width: 100%;
-    justify-content: center;
-    margin-right: 0;  /* reset margin on mobile */
-  }
-
-  .search-form input {
-    width: 70%;
-  }
-
-  .paste-form textarea {
-    width: 90%;
-    height: 200px;
-  }
-
-  ul {
-    max-width: 95%;
-  }
-}
-
-/* end of styles */
+  transit
